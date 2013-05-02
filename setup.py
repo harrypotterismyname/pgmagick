@@ -13,7 +13,7 @@ library_dirs = []
 
 search_include_dirs = ['/usr/local/include/GraphicsMagick/',
                        '/usr/include/GraphicsMagick/', '/app/bin/gm','/app/vendor/graphicsmagick/bin/gm','/app/vendor/graphicsmagick/include/GraphicsMagick' ]
-search_library_dirs = ['/usr/local/lib64/', '/usr/lib64/',
+search_library_dirs = ['/app/vendor/boost/include/','/usr/local/lib64/', '/usr/lib64/',
                        '/usr/local/lib/', '/usr/lib/', '/app/bin/gm','/app/vendor/graphicsmagick/lib', '/app/vendor/']
 search_heroku_library_dirs = ['/app/vendor/boost/include/']
 if sys.platform.lower() == 'darwin':
