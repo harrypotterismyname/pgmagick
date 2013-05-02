@@ -14,7 +14,7 @@ library_dirs = []
 search_include_dirs = ['/usr/local/include/GraphicsMagick/',
                        '/usr/include/GraphicsMagick/', '/app/bin/gm','/app/vendor/graphicsmagick/bin/gm','/app/vendor/graphicsmagick/include/GraphicsMagick' ]
 search_library_dirs = ['/usr/local/lib64/', '/usr/lib64/',
-                       '/usr/local/lib/', '/usr/lib/', '/app/bin/gm','/app/vendor/graphicsmagick/lib']
+                       '/usr/local/lib/', '/usr/lib/', '/app/bin/gm','/app/vendor/graphicsmagick/lib', '/app/vendor/']
 if sys.platform.lower() == 'darwin':
     include_dirs.append('/opt/local/include/')
     search_include_dirs.extend(['/opt/local/include/GraphicsMagick/',
@@ -90,7 +90,9 @@ if not lib_path:
         if not lib_path:
             boost_lib = "boost_python"
     else:
-        boost_lib = "boost_python"
+#hack for heroku boost folder
+        boost_lib = "boost"
+        lib_path = find_file(boost_lib, search_library_dirs)
 
 libraries = [boost_lib]
 
