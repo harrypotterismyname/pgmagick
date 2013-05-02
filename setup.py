@@ -14,7 +14,7 @@ library_dirs = []
 search_include_dirs = ['/usr/local/include/GraphicsMagick/',
                        '/usr/include/GraphicsMagick/', '/app/bin/gm','/app/vendor/graphicsmagick/bin/gm','/app/vendor/graphicsmagick/include/GraphicsMagick' ]
 search_library_dirs = ['/usr/local/lib64/', '/usr/lib64/',
-                       '/usr/local/lib/', '/usr/lib/', '/app/bin/gm','/app/vendor/graphicsmagick/bin/gm']
+                       '/usr/local/lib/', '/usr/lib/', '/app/bin/gm','/app/vendor/graphicsmagick/lib']
 if sys.platform.lower() == 'darwin':
     include_dirs.append('/opt/local/include/')
     search_include_dirs.extend(['/opt/local/include/GraphicsMagick/',
