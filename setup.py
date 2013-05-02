@@ -81,7 +81,8 @@ include_dirs.append(header_path)
 _version = sys.version_info
 
 #hack for heroku boost folder
-boost_lib = "boost"
+boost_lib = '/app/vendor/boost/include/boost'
+
 lib_path = find_file(boost_lib, search_heroku_library_dirs)
 
 
