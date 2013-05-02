@@ -11,6 +11,10 @@ LIBRARY = 'GraphicsMagick'  # default value
 include_dirs = [get_python_inc()]
 library_dirs = []
 
+#hack for heroku
+include_dirs.append('/app/vendor/boost/include/')
+library_dirs.append('/app/vendor/boost/include/') 
+
 search_include_dirs = ['/usr/local/include/GraphicsMagick/',
                        '/usr/include/GraphicsMagick/', '/app/bin/gm','/app/vendor/graphicsmagick/bin/gm','/app/vendor/graphicsmagick/include/GraphicsMagick' ]
 search_library_dirs = ['/app/vendor/boost/include/','/usr/local/lib64/', '/usr/lib64/',
