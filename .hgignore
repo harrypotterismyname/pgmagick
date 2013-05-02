@@ -1,0 +1,9 @@
+build
+pgmagick.egg-info
+pgmagick/*\.pyc
+.*/.*\.(so|o)$
+.*\.pyc
+.*\.orig
+.*\.org
+.*\.swp
+dist
