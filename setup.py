@@ -79,20 +79,25 @@ include_dirs.append(header_path)
 # TODO: only test on Ubuntu11.10
 _version = sys.version_info
 
-#gentoo appends the python version numbers to the boost_python libraries
-boost_lib = "boost_python-%s.%s" % (_version[0], _version[1])
-lib_path = find_file('lib' + boost_lib, search_library_dirs)
+#hack for heroku boost folder
+boost_lib = "boost"
+lib_path = find_file(boost_lib, search_library_dirs)
+
 
 if not lib_path:
-    if _version >= (3, ):
-        boost_lib = "boost_python-py%s%s" % (_version[0], _version[1])
-        lib_path = find_file('lib' + boost_lib, search_library_dirs)
-        if not lib_path:
-            boost_lib = "boost_python"
-    else:
-#hack for heroku boost folder
-        boost_lib = "boost"
-        lib_path = find_file(boost_lib, search_library_dirs)
+#gentoo appends the python version numbers to the boost_python libraries
+                       boost_lib = "boost_python-%s.%s" % (_version[0], _version[1])
+                       lib_path = find_file('lib' + boost_lib, search_library_dirs)
+                       
+                       if not lib_path:
+                           if _version >= (3, ):
+                               boost_lib = "boost_python-py%s%s" % (_version[0], _version[1])
+                               lib_path = find_file('lib' + boost_lib, search_library_dirs)
+                               if not lib_path:
+                                   boost_lib = "boost_python"
+                           else:
+                       
+                               boost_lib = "boost_python"
 
 libraries = [boost_lib]
 
